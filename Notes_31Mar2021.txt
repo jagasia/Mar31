@@ -1,0 +1,618 @@
+Typescript
+data types
+variable declaration and initialization
+operators
+-----------------
+programming constructs
+	if-else if-else
+	switch-case-default
+	while
+	do while
+	for loop
+	for each
+
+let x:number=520;
+let y:number=130;
+let z:number=410;
+
+let max=0;
+
+if(x>y)
+    if(x>z)
+        max=x;
+    else
+        max=z;
+else if(y>z)
+    max=y;
+else
+    max=z;
+
+console.log(max);
+
+
+-------------------------------
+let x: string = 'b';
+
+switch (x) {
+    case 'a':
+    case 'e':
+    case 'i':
+    case 'o':
+    case 'u':
+        console.log("Vowel");
+        break;
+    default:
+        console.log("Not vowel");
+        break;
+}
+-------------------------
+let x=1;
+while(true)
+{
+    console.log(x++);
+    if(x>10)
+        break;
+}
+------------------------------
+let x=1;
+while(x<=10)
+{
+    console.log(x++);
+    // if(x>10)
+    //     break;
+}
+--------------------------------
+let x=1;
+do{
+    console.log(x++);
+    // if(x>10)
+    //     break;
+}while(x<=10);
+-----------------------------
+for(let i:number=0;i<10;i++)
+{
+    console.log(i);
+}
+----------------------------
+let i=100;
+for(let i:number=0;i<10;i++)
+{
+    console.log(i);
+}
+console.log("after for loop");
+console.log(i);
+
+output:
+	0.....9
+	after for loop
+	100
+--------------------------------
+    let i=100;
+    for(;i<110;i++)
+    {
+        console.log(i);
+    }
+    console.log("after for loop");
+    console.log(i);
+-----------------------
+let arr:number[]=[11.88,22,99,33,44,25];
+for(let x in arr)
+{
+    console.log(arr[x]);
+}
+
+
+for each loop
+	in is used to get index
+	of is used to get elements
+
+for(let x of arr)
+		here, x will contain the values of elements
+
+----------------------------------------------
+break 
+	will exit from the loop
+continue
+	will skip the remaining part of current loop and move to next iteration
+----------------------------------------------
+Functions: (in typescript)
+
+Define the function once.
+call the function many times
+the functions may return value 
+1) defining functions
+2) calling functions
+3) returning functions
+4) parameterized functions
+	default parameters	fn1(x:string='india')
+	optional parameters	fn1(x?:string)
+	rest parameters		(param array)
+
+some parameters can have default value
+
+Rest parameters (even optional parameters) must be placed only at the right side end of arg list
+
+display(x?:number, y:number, z:number)		//not allowed
+display(y:number,z:number,x?number)		//allowed		(only at the right end)
+
+similarly,
+	rest parameters should be at the right end.
+	it is optional argument
+
+------------------------
+Overloading
+	multiple functions with same name but different signature
+		signature
+			no of args
+			order of type of args
+			data type of args
+
+		return type does not matter. same or different no issues
+
+		but if return type difference is the only difference, but signature is same, IS NOT ALLOWED
+
+//Function with string type parameter  
+function add(a:string, b:string): string;  
+//Function with number type parameter  
+function add(a:number, b:number): number;  
+//Function Definition  
+function add(a: any, b:any): any {  
+    return a + b;  
+}  
+
+
+var str: string = 'education';
+
+for (let i: number = 0; i < str.length; i++) {
+    let c = str.charAt(i);
+    switch (c) {
+        case 'a':
+        case 'e':
+        case 'i':
+        case 'o':
+        case 'u':
+            console.log(c);
+            break;
+    }
+}
+
+------------------------------------------------------------------
+// var arr=[33,11,99,77,44,4,9,8,3,5,6];
+let arr:number[]=[33,11,99,77,44,4,9,8,3,5,6];
+
+//to sort an array
+arr.sort((a,b)=>b-a);
+console.log(arr);
+
+
+
+class Student
+{
+    studentId:number;
+    firstName:string;
+    lastName:string;
+    dateOfBirth:Date;
+    picture:File;
+
+}
+
+
+
+---------------------
+class Student
+{
+    studentId:number;
+    firstName:string;
+    lastName:string;
+    dateOfBirth:Date;
+    picture:File;
+    static collegeName:string;
+
+    constructor(studentId:number)
+    {
+        this.studentId=studentId;
+        this.firstName='rama';          //instance variable
+        Student.collegeName='KLN';      //static variable   also called as class variable
+    }
+}
+
+------------------------------------------
+class Student
+{
+    studentId:number;
+    firstName:string;
+    lastName:string;
+    dateOfBirth:Date;
+    picture:File;
+    static collegeName:string;
+
+    constructor(studentId:number)
+    {
+        this.studentId=studentId;
+        this.firstName='rama';          //instance variable
+        Student.collegeName='KLN';      //static variable   also called as class variable
+    }
+}
+
+let rama:Student=new Student(100);
+console.log(rama.studentId);
+console.log(rama.firstName);
+console.log(Student.collegeName);
+
+----------------------------------------------------------------
+to create angular project
+go to your project location and enter the following command
+
+ng new mar-31-1
+
+once the project is created,	(in cmd) move into the folder
+	cd first-project
+
+in vs code,	open the folder	(project folder)
+
+look at the "src" folder
+it contains home page	"index.html"
+
+in index.html
+	notice that 	
+		<app-root></app-root>
+
+this looks like a custom tag. in angular it is called as "selector"
+
+this selector (app-root) represents a component	(app)
+
+
+A project is made up of 
+	one or more "modules"		(here, app is a module)
+
+A module can contain one or more "components"
+
+A component can contain
+	html		(template)
+	css		(style)
+	ts		(code)
+	spec.ts		(testing code)	
+
+
+
+
+a webiste has
+	menu bar
+	footer
+	side bar
+	content panel
+
+we can create each of them as a component
+
+if you remember in jsp, we created a segment called menu.jsp
+
+Create components separately, test them,
+plug them into the App module
+
+
+@Component		(this is a decorator.	In java, it is called as annotation)
+
+in typescript, they are called as decorators
+
+a class with a @Component decorator is a component class
+
+Let's understand this component decorator:
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+
+
+template	(or)	templateUrl
+
+@Component({
+  selector: 'app-root',
+  template: `<p>this is a template displayed </p><div>there are lot of code in a template</div>`,
+  styleUrls: ['./app.component.css']
+})
+
+
+notice the single quote in template?
+	` is used instead of '
+
+	` single quote is used to type multiple line of code
+
+
+` is used to write inline templates that span across multiple lines`
+
+
+-----------------
+command to run the project is
+ng serve -o
+
+the -o switch automatically opens the browser and navigate to your home page
+http://localhost:4200/
+
+
+
+	<form>
+        User Name:
+        <input type=text class="form-control" />
+        Password:
+        <input type="password" name="" id=""  class="form-control"><br>
+        <input type="submit"  class="btn btn-success">&nbsp;
+        <input type="reset"  class="btn btn-warning">
+      </form>
+
+
+
+create a component inside your project folder
+	ng g c login
+
+this will create 
+	login.component.html
+	login.component.ts
+	login.component.spec.ts		(testing)
+	login.component.css
+
+1) event binding
+2) property binding
+3) two way binding
+
+Introduction to angular:
+--------------------------
+the first version of angular was called as Angular JS
+second version onwards is called as Angular
+
+1) interpolation				
+
+Task:
+------
+in .ts file
+	declare a variable inside the class				x : number=100;
+	assign some value to the variable
+in .html file
+	use interpolation to display the value of that variable		{{x}}
+
+2) Property binding
+	is done with the property in []
+	value="username"			//username is displayed. username is constant
+	[value]="username"			//username is a variable. its value is displayed
+
+
+Task:
+	declare a variable "username" in .ts file inside the class
+	bind this variable to the property of textbox	ie.,		value property
+	check the output. the value of textbox displays the value of username variable
+
+
+in .ts file (inside class)
+	x:string="right";
+
+<p [align]="x">This is a paragraph</p>
+
+
+Task:
+	Create (if not already), a login component
+	username
+	password
+	login button
+
+on clicking the login button, .ts function should be called.
+	if username is "rama"	and password is "ravi" then
+	display login is successful in green color below the login form
+
+	else
+	display login is failed in red color below the login form
+
+hint:
+	use property binding and event binding
+
+we couldnt do this.
+	the username was assign as "laxmana" in .ts variable
+	it is only shown when a button is clicked.
+	the value entered by the user is not updated in the username variable in .ts
+
+this is because, the property binding was 1-way binding. ie., from variable to textbox
+
+	if we need to do 2 way binding?
+	[()]		"Banana in the box"
+
+
+for 2 way data binding,
+	we need to add "FormsModule" into the app module
+
+1) go to app.module.ts
+	import FormsModule
+
+	import { FormsModule } from '@angular/forms';
+
+	and inside the imports
+	,
+	FormsModule
+
+
+----------------------------
+Task:
+	create a component "signup"
+	
+	username
+	password
+	confirm password
+	first name
+	last name
+	email address
+	date of birth	<input type=date
+	
+	1) if password and confirm password does not match (while typing confirm password itself) an error message should be displayed near confirm password text box
+
+	2) if date of birth is future, display error message near the date of birth
+
+	3) if all the above conditions are correct, display success message else failure message below submit
+
+Hint:
+	keyup event while typing	(confirm password)
+	blur event opposite to focus	(date of birth)
+
+----------------------------
+Task:
+in login component,
+place a check box "Show password"
+on tick, the password typed in the password field should be visible (readable) to the user
+
+Hint:
+	<input type="password" />
+
+here the type is fixed to "password". Use property binding to change according to the checkbox
+
+---------------------------------------
+Task:
+
+Gender:	(3 radio buttons)		Female	Male	Other	(radio buttons)
+Interests:		Education, Sports, Music, Entertainment	(check boxes)
+
+display the chosen
+	Gender
+	Interests
+
+Hint:
+	use 2 way data binding
+------------------------------------------------------------
+Task:
+create a component	(anyname)
+
+in .ts class
+	create an array of strings
+in .html 
+	<li> should be repeated for as many elements found in the array
+
+Hint:
+	use *ngFor
+-----------------------
+Task:
+	password
+	confirm password
+
+both are bound to .ts class variables	(2 way binding)
+create a div with content "Passwords does not match" use bootstrap class "alert alert-danger"
+this div should conditionally be displayed using ngIf
+
+
+------------------------
+ngFor
+ngIf
+ngSwitch
+ngClass
+
+
+
+<ul [ngSwitch]="name">
+    <li *ngSwitchCase="'raja'">Raja Siva kumar</li>
+    <li *ngSwitchCase="'ravi'">Ravikumar</li>
+    <li *ngSwitchCase="'raja'">Siva kumar</li>
+    <li *ngSwitchCase="'rama'">Rama</li>
+    <li *ngSwitchCase="'raja'">Suresh kumar</li>
+    
+</ul>
+-----------------------------
+Pipes
+	|
+pipes are used to transform the data from one format to another format
+	date
+	number
+	string
+	
+
+Activity:
+	Identify the types of built in Pipers in angular
+
+CurrencyPipe. This pipe is used for formatting currencies. ...
+DatePipe. This pipe is used for the transformation of dates. ...
+DecimalPipe. This pipe is used for transformation of decimal numbers. ...
+JsonPipe. ...
+LowerCasePipe. ...
+UpperCasePipe. ...
+PercentPipe. ...
+SlicePipe.
+percent pipe
+
+
+
+
+months = ["Jan", "Feb", "Mar", "April", "May", "Jun",
+"July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+
+{{months | slice:2:6}}	
+
+
+
+
+{{str | uppercase}}
+<br>
+{{dt | date:'fullDate'}}
+<br>
+{{dt | date:'dd-MMM-yyyy'}}
+<br>
+{{dt | date:'yyyy-MM-dd'}}
+<br>
+{{x}}
+<br>
+{{x | number:'3.1-2'}}
+<br>
+{{.25 | percent}}
+<br>
+{{raja | json}}
+<br>
+{{months | slice:5:7}}
+
+
+
+----------------------------------------------------
+
+export class Student {
+    studentId:number;
+    firstName:string;
+    lastName:string;
+}
+
+ raja:Student=new Student();
+  constructor() {
+    this.raja.studentId=123;
+    this.raja.firstName='Raja';
+    this.raja.lastName='Siva kumar';
+   }
+-------------------------------------------------
+AppComponent	is the parent component
+	LoginComponent
+
+login is the component we created		ng g c login
+class name became	LoginComponent
+
+---------------------
+There is a parent component
+	there is a child component
+
+-------------------
+@Input()
+Task:
+	the parent component should give input to the child component.
+	The title of the child component should be decided by the parent component.
+
+
+ngContent
+	In @Input, we use attribute to send input to the child
+	<app-login title="This is title">This is the content typed in parent component</app-login>
+
+
+---------------
+Task:
+	in the parent component, some content is injected to child component in between start and end tag
+	ex:		<app-login title="This is title">This is the content typed in parent component</app-login>
+
+	The child component should display the content using <ng-content></ng-content>
+
+-------------------------
+@Output
+	what is output?
+		child component sends info to parent component
+
+this is done using event handling
+
+	event emitter is used in child component to raise event
+	the parent should handle the event
